@@ -9,7 +9,8 @@ class App extends Component {
 
   state = {
     venues: [],
-    open: false
+    open: false,
+    isVisible: true
   }
 
   styles = {
@@ -53,6 +54,7 @@ class App extends Component {
       client_secret: "4ND5NVPRKMDUXVUINITJM3YU3WSX2FG0UKVE4WN2ZHGXEENZ",
       query: "food",
       near: "Denver",
+      limit: 10,
       v: "20183010"
     }
 
@@ -108,7 +110,7 @@ class App extends Component {
         </button>
         <h1 className="App-header">Denver, CO</h1>
         <div className="App">
-          <SideBar />
+          <SideBar {...this.state}/>
           <div id="map"></div>
         </div>
       </main>
