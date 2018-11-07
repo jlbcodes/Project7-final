@@ -1,13 +1,41 @@
 import React, { Component } from 'react';
 import './App.css';
+import SideBar from "./components/SideBar"
+
 
 import axios from 'axios'
 
 class App extends Component {
 
   state = {
-    venues: []
+    venues: [],
+    open: false
   }
+
+  styles = {
+      menuButton: {
+        marginLeft: 10,
+        marginRight: 20,
+        position: "absolute",
+        left: 10,
+        top: 20,
+        background: "white",
+        padding: 10
+      },
+      hide: {
+        display: 'none'
+      },
+      header: {
+        marginTop: "0px"
+      }
+    };
+
+    toggleDrawer = () => {
+   // Toggle the value controlling whether the drawer is displayed
+     this.setState({
+       open: !this.state.open
+     });
+    }
 
   componentDidMount() {
     this.getVenues()
@@ -35,7 +63,7 @@ class App extends Component {
         }, this.renderMap())
       })
       .catch(error => {
-        console.log("ERROR!! " + error)
+        alert("Error! " + error)
       })
   }
 
@@ -52,8 +80,6 @@ class App extends Component {
     this.state.venues.map(myVenue => {
 
       var contentString = `${myVenue.venue.name}${myVenue.venue.location.formattedAddress}`
-
-
       //Creates a Marker
       var marker = new window.google.maps.Marker({
          position: {lat: myVenue.venue.location.lat, lng: myVenue.venue.location.lng},
@@ -77,14 +103,18 @@ class App extends Component {
   render() {
     return (
       <main>
-        <div id="map"></div>
+        <button onClick={this.toggleDrawer} style={this.styles.menuButton}>
+          <i className="fa fa-bars"></i>
+        </button>
+        <h1 className="App-header">Denver, CO</h1>
+        <div className="App">
+          <SideBar />
+          <div id="map"></div>
+        </div>
       </main>
     );
   }
 }
-
-/*<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-    async defer></script>*/
 
 function loadScript(url) {
   var index = window.document.getElementsByTagName('script')[0]
