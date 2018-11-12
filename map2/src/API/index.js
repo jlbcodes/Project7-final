@@ -6,8 +6,8 @@ class Helper {
   }
   static auth(){
     const keys = {
-      client_id: "LMONO5JP4GHDNPSWTKINXK1H0UFUNWJA4FIO4A0TS5BY4UZ2",
-      client_secret: "4ND5NVPRKMDUXVUINITJM3YU3WSX2FG0UKVE4WN2ZHGXEENZ",
+      client_id: "NPOMURICWENX1VXKDGOBAG2DFU1NDYSFT3ZJ4MWCCD5Y4WBX",
+      client_secret: "23USOBB22ZUNMYW3JZYBAICL1PJ30D5XNSNJ21ZPYEGSONDQ",
       v: 20181111
     };
     return Object.keys(keys)
