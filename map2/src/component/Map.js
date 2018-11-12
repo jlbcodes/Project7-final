@@ -1,4 +1,5 @@
 /* global google */
+//help from Ryan Waite, Doug Brown, Yahya Elharony, Rodrick Bloomfield, Forrest
 import React, {Component} from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps"
 

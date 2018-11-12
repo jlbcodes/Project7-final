@@ -1,3 +1,5 @@
+//help from Ryan Waite, Doug Brown, Yahya Elharony, Rodrick Bloomfield, Forrest
+//handling GET requests from FourSquare API
 class Helper {
   static baseURL(){
     return "https://api.foursquare.com/v2";
